@@ -80,19 +80,6 @@ public class day2 {
 
 
 
-
-/*
-        echo "# EurotechAppiumProject" >> README.md
-        git init
-        git add README.md
-        git commit -m "first commit"
-        git branch -M main
-        git remote add origin https://github.com/EuroTech-SDET3/EurotechAppiumProject.git
-        git push -u origin main
-
-*/
-
-
     }
 
 }
