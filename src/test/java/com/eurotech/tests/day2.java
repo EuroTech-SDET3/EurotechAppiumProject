@@ -74,6 +74,23 @@ public class day2 {
         Assert.assertEquals("40",resultText);
 
 
+        //91 - 74 = 17 verify that result is 17
+
+        //Create a method for all digits
+
+        getDigit(9).click();
+        getDigit(1).click();
+        MobileElement minus = driver.findElementByAccessibilityId("minus");
+        minus.click();
+        getDigit(7).click();
+        getDigit(4).click();
+
+        equals.click();
+
+        resultText=result.getText();
+        Assert.assertEquals(resultText,"17");
+
+
 
         Thread.sleep(3000);
         driver.closeApp();
@@ -82,4 +99,24 @@ public class day2 {
 
     }
 
+    @Test
+    public void test2() throws MalformedURLException {
+        AppiumDriver<MobileElement> driver;
+
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
+        desiredCapabilities.setCapability(MobileCapabilityType.VERSION,"12.0");
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Pixel_2");
+        desiredCapabilities.setCapability("appPackage","com.google.android.calculator");
+        desiredCapabilities.setCapability("appActivity","com.android.calculator2.Calculator");
+        driver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"),desiredCapabilities);
+
+
+    }
+    public MobileElement getDigit(int digit){
+
+        return driver.findElement(By.id("com.google.android.calculator:id/digit_"+digit));
+
+    }
 }
